@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilo-login.css') }}">
+</head>
+
+<body>
+    <form action="" method="POST">
+        <div class="login">
+            <div class="mensagem_erro">
+                {% if mensagem %}
+                <p style="color: red;">{{ mensagem }}</p>
+                {% endif %}
+
+            </div>
+            <label for="">
+                Username
+            </label>
+            <br>
+            <input type="text" name="usuario" id="" placeholder=" Username">
+            <br>
+            <label for="">
+                Passoword
+            </label>
+            <br>
+            <input type="password" name="senha" id="" placeholder=" Passoword">
+        </div>
+        <br>
+        <button type="submit"> Login </button>
+    </form>
+    <!--essa div aqui de baixo não faz muit sentido pq ela não ta aclopando nada mas se tu tem algum motivo especifico pra essa div ta aqui tu coloca uma funcionalidade nela mas se não tu tira -->
+    <div class="star"></div>
+</body>
+
+</html>
