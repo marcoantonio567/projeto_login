@@ -1,40 +1,41 @@
 from flask import Flask, render_template , request ,  redirect, url_for
-import sqlite3
 
 
+#create app instance
 app = Flask(__name__)
 
+#define routes
 @app.route("/")
 def login():
     return render_template("/html/login.html")
 
-
+#verify login
 @app.route("/" , methods=['POST'])
-def verificar_login():
-    usuario_digitado = request.form['usuario']
-    senha_digitada = request.form['senha']
+def verify_login():
+    user_typing = request.form['usuario']
+    password_typing = request.form['senha']
 
     
-    if usuario_digitado in usuarios and senha_digitada  == usuarios[usuario_digitado]:
-        # Login bem-sucedido, redireciona para outra página
-
+    if user_typing in users and password_typing  == users[user_typing]:
+        # login success, redirect to index page
          return  redirect(url_for('index'))
     else:
-        # Login falhou, exibe uma mensagem de erro
+        # login failed, show error message
         return render_template('/html/login.html', mensagem='Login ou senha incorretos')
 
-
+#define index route
 @app.route("/index")
 def index():
     return render_template("/html/index.html")
 
-
-usuarios = {
+#define users
+users = {
+    #username:password
     "saitama":"1234",
     "usuario2":"senha2",
     "user1":"bota00"
 }
 
-
+#define app run
 if __name__ == '__main__':
     app.run(debug=True)
