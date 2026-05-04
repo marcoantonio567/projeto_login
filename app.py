@@ -21,7 +21,7 @@ def verify_login():
          return  redirect(url_for('index'))
     else:
         # login failed, show error message
-        return render_template('/html/login.html', mensagem='Login ou senha incorretos')
+        return render_template('/html/login.html', mesage='Login ou senha incorretos')
 
 #define index route
 @app.route("/index")
